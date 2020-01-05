@@ -11,7 +11,7 @@ namespace TestNinja.UnitTests
     public class ReservationsSpecs
     {
         [Subject(typeof(Reservation))]
-        public class When_cancelling_reservation
+        public class when_cancelling_reservation
         {
             static Reservation subject;
             static User user = new User();
