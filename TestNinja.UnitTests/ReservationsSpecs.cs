@@ -11,54 +11,25 @@ namespace TestNinja.UnitTests
     public class ReservationsSpecs
     {
         [Subject(typeof(Reservation))]
-        public class When_cancelling_reservation_by_admin
+        public class When_cancelling_reservation
         {
             static Reservation subject;
-            static bool can_cancel;
-
-            Establish context = () =>
-                subject = new Reservation();
-
-            Because of = () =>
-                can_cancel = subject.CanBeCancelledBy(new User {IsAdmin = true});
-
-            It should_be_possible = () =>
-                can_cancel.ShouldBeTrue();
-
-        }
-
-        [Subject(typeof(Reservation))]
-        public class When_canceling_reservation_by_creator
-        {
-            static Reservation subject;
-            static bool can_cancel;
             static User user = new User();
 
             Establish context = () =>
                 subject = new Reservation {MadeBy = user};
 
-            Because of = () =>
-                can_cancel = subject.CanBeCancelledBy(user);
+            It should_be_doable_for_admin = () =>
+                subject.CanBeCancelledBy(new User{IsAdmin = true}).ShouldBeTrue();
 
-            It should_be_possible = () =>
-                can_cancel.ShouldBeTrue();
+            It should_be_doable_for_creator = () =>
+                subject.CanBeCancelledBy(user).ShouldBeTrue();
+
+            It should_not_be_doable_for_other_user = () =>
+                subject.CanBeCancelledBy(new User()).ShouldBeFalse();
+
         }
 
-        [Subject(typeof(Reservation))]
-        public class when_cancelling_reservation_by_different_user
-        {
-            static Reservation subject;
-            static bool can_cancel;
-
-            Establish context = () =>
-                subject = new Reservation {MadeBy = new User()};
-
-            Because of = () => can_cancel = subject.CanBeCancelledBy(new User());
-
-            It should_not_be_possible = () => 
-                can_cancel.ShouldBeFalse();
-        }
-
-}
+    }
 
 }
