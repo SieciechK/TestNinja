@@ -1,0 +1,16 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.idea/.idea.TestNinja
+/.vs/TestNinja/v16
+/packages
+/TestNinja/bin/Debug
+/TestNinja/Mocking/.DS_Store
+/TestNinja/obj/Debug
+/TestNinja/.DS_Store
+/TestNinja/Properties
+/TestNinja.UnitTests/bin/Debug
+/TestNinja.UnitTests/obj/Debug
+/TestNinja.UnitTests/Properties
+/.DS_Store
