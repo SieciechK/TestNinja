@@ -6,7 +6,7 @@ using TestNinja.Fundamentals;
 
 namespace TestNinja.UnitTests
 {
-    [TestFixture()]
+    [TestFixture]
     public class ReservationTests
     {
         [Test]

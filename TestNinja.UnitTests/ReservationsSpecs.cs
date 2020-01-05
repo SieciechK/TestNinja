@@ -27,7 +27,6 @@ namespace TestNinja.UnitTests
 
             It should_not_be_doable_for_other_user = () =>
                 subject.CanBeCancelledBy(new User()).ShouldBeFalse();
-
         }
 
     }
